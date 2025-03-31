@@ -10,33 +10,58 @@ from odoo.exceptions import ValidationError
 class ProjectProject(models.Model):
     _inherit = "project.project"
 
+    timesheet_restriction_days = fields.Integer(
+        default=0,
+        help="Maximum number of days before today allowed for a timesheet. "
+        "Set to 0 to disable project‑level restriction.",
+    )
+    use_timesheet_restriction = fields.Boolean(
+        default=lambda self: self._default_use_timesheet_restriction(),
+        help="Whether to enforce date restriction for this project "
+        "based on the global setting.",
+    )
+
+    @api.model
+    def _default_use_timesheet_restriction(self):
+        """
+        This method provides a default value for the 'use_timesheet_restriction' field by
+        fetching the configuration parameter
+        'hr_timesheet_time_restriction.use_timesheet_restriction'.
+        It ensures that the returned value is a boolean.
+
+        Returns:
+            bool: The default value of the 'use_timesheet_restriction' field based on the
+            system configuration parameter.
+        """
+        return bool(
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("hr_timesheet_time_restriction.use_timesheet_restriction", False)
+        )
+
     @api.constrains("timesheet_restriction_days")
     def _check_timesheet_restriction_days(self):
         """
-        Check that the `timesheet_restriction_days` is positive
+        Checks and validates the timesheet restriction days for projects
+
+        Raises:
+            ValidationError:
+                If the `timesheet_restriction_days` field contains a negative value
+                in a project record.
         """
-        use_timesheet_restriction = (
-            True
-            if self.env["ir.config_parameter"]
+        # Skip validation if global restriction is disabled
+        global_flag = (
+            self.env["ir.config_parameter"]
             .sudo()
             .get_param("hr_timesheet_time_restriction.use_timesheet_restriction", False)
-            else False
         )
-        for record in self:
-            if use_timesheet_restriction:
-                if record.timesheet_restriction_days < 0:
-                    raise ValidationError(
-                        _("The day of the timesheet restriction must not be negative.")
+        if not bool(global_flag):
+            return
+
+        for project in self:
+            if project.timesheet_restriction_days < 0:
+                raise ValidationError(
+                    _(
+                        "The number of days for timesheet restriction must not be negative."
                     )
-
-    timesheet_restriction_days = fields.Integer(
-        default=0, help="Not active if equal to 0."
-    )
-
-    use_timesheet_restriction = fields.Boolean(
-        default=lambda self: True
-        if self.env["ir.config_parameter"]
-        .sudo()
-        .get_param("hr_timesheet_time_restriction.use_timesheet_restriction", False)
-        else False
-    )
+                )

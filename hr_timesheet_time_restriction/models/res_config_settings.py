@@ -9,6 +9,15 @@ from odoo import _, api, fields, models
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
+    timesheet_restriction_days = fields.Integer(
+        config_parameter="hr_timesheet_time_restriction.timesheet_restriction_days",
+        default=0,
+    )
+
+    use_timesheet_restriction = fields.Boolean(
+        config_parameter="hr_timesheet_time_restriction.use_timesheet_restriction"
+    )
+
     @api.onchange("timesheet_restriction_days")
     def _onchange_timesheet_restriction_days(self):
         """
@@ -24,12 +33,3 @@ class ResConfigSettings(models.TransientModel):
                     ),
                 },
             }
-
-    timesheet_restriction_days = fields.Integer(
-        config_parameter="hr_timesheet_time_restriction.timesheet_restriction_days",
-        default=0,
-    )
-
-    use_timesheet_restriction = fields.Boolean(
-        config_parameter="hr_timesheet_time_restriction.use_timesheet_restriction"
-    )
