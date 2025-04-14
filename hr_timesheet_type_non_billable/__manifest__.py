@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "HR Timesheet Type Non Billable",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Timesheet",
     "website": "https://github.com/OCA/timesheet",
     "author": "APSL-Nagarro, Odoo Community Association (OCA)",

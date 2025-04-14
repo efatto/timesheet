@@ -33,7 +33,7 @@ class TestHrTimesheetTypeNonBillable(TransactionCase):
             {
                 "name": "Test Task",
                 "project_id": cls.project.id,
-                "planned_hours": 10,
+                "allocated_hours": 10,
             }
         )
 

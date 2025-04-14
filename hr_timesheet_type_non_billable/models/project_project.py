@@ -13,14 +13,13 @@ class Project(models.Model):
 
         timesheets_read_group = self.env["account.analytic.line"]._read_group(
             [("project_id", "in", self.ids), ("non_billable", "=", False)],
-            ["project_id", "unit_amount"],
             ["project_id"],
-            lazy=False,
+            ["unit_amount:sum"],
         )
         timesheet_time_dict = {
-            res["project_id"][0]: res["unit_amount"] for res in timesheets_read_group
+            project.id: unit_amount_sum
+            for project, unit_amount_sum in timesheets_read_group
         }
-
         for project in self:
             project.remaining_hours = project.allocated_hours - timesheet_time_dict.get(
                 project.id, 0
