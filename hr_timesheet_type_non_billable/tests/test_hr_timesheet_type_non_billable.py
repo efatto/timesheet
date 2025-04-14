@@ -4,7 +4,6 @@ from odoo.tests.common import TransactionCase
 class TestHrTimesheetTypeNonBillable(TransactionCase):
     @classmethod
     def setUpClass(cls):
-
         super().setUpClass()
 
         cls.employee = cls.env["hr.employee"].create(
