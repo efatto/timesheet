@@ -14,14 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_timesheet_sheet_autodraft
-#: model_terms:ir.ui.view,arch_db:hr_timesheet_sheet_autodraft.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" role=\"img\" aria-label=\"Values set here are company-"
-"specific.\" groups=\"base.group_multi_company\"/>"
-msgstr ""
-
-#. module: hr_timesheet_sheet_autodraft
 #: model:ir.model,name:hr_timesheet_sheet_autodraft.model_account_analytic_line
 msgid "Analytic Line"
 msgstr ""
@@ -29,11 +21,6 @@ msgstr ""
 #. module: hr_timesheet_sheet_autodraft
 #: model:ir.actions.server,name:hr_timesheet_sheet_autodraft.action_autodraft_timesheet_sheets
 msgid "Auto-draft Timesheet Sheet(s)"
-msgstr ""
-
-#. module: hr_timesheet_sheet_autodraft
-#: model_terms:ir.ui.view,arch_db:hr_timesheet_sheet_autodraft.res_config_settings_view_form
-msgid "Auto-draft Timesheet Sheets"
 msgstr ""
 
 #. module: hr_timesheet_sheet_autodraft
@@ -46,7 +33,8 @@ msgstr ""
 #. module: hr_timesheet_sheet_autodraft
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_sheet_autodraft.res_config_settings_view_form
 msgid ""
-"Check to enable Timesheet Sheet(s) auto-drafting on Timesheet altering."
+"Auto-draft timesheet when an entry is created and no sheet covering this "
+"period exists"
 msgstr ""
 
 #. module: hr_timesheet_sheet_autodraft
