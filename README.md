@@ -28,7 +28,7 @@ addon | version | maintainers | summary
 [hr_timesheet_date_order_desc](hr_timesheet_date_order_desc/) | 16.0.1.0.0 |  | Add new timesheet entries to the top of the list and order by date descending
 [hr_timesheet_editable_top](hr_timesheet_editable_top/) | 16.0.1.0.0 |  | Add new timesheet entries to the top of the list
 [hr_timesheet_employee_analytic_tag](hr_timesheet_employee_analytic_tag/) | 16.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Hr Timesheet Employee Analytic Tag
-[hr_timesheet_name_customer](hr_timesheet_name_customer/) | 16.0.1.0.1 | [![solo4games](https://github.com/solo4games.png?size=30px)](https://github.com/solo4games) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Add ‘Description Customer’ field for timesheets
+[hr_timesheet_name_customer](hr_timesheet_name_customer/) | 16.0.1.1.0 |  | Add 'Description Customer' field for timesheets
 [hr_timesheet_report](hr_timesheet_report/) | 16.0.1.0.0 | [![alexey-pelykh](https://github.com/alexey-pelykh.png?size=30px)](https://github.com/alexey-pelykh) | Generate Timesheet Report from Task Logs
 [hr_timesheet_sheet](hr_timesheet_sheet/) | 16.0.1.1.4 |  | Timesheet Sheets, Activities
 [hr_timesheet_sheet_attendance](hr_timesheet_sheet_attendance/) | 16.0.1.0.0 |  | HR Timesheet Sheet Attendance

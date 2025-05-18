@@ -1,7 +1,7 @@
 {
     "name": "Timesheet Description Customer",
     "summary": "Add 'Description Customer' field for timesheets",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.1.0",
     "category": "Timesheet",
     "website": "https://github.com/OCA/timesheet",
     "author": "Odoo Community Association (OCA), Cetmix",
