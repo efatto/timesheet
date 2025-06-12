@@ -6,43 +6,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-06-12 17:26+0000\n"
+"Last-Translator: Betül Öğmen <betulo@eska.biz>\n"
 "Language-Team: none\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: sale_timesheet_line_exclude
 #: model:ir.model,name:sale_timesheet_line_exclude.model_account_analytic_line
 msgid "Analytic Line"
-msgstr ""
+msgstr "Analitik Satırı"
 
 #. module: sale_timesheet_line_exclude
 #: model:ir.model.fields,help:sale_timesheet_line_exclude.field_account_analytic_line__exclude_from_sale_order
 msgid "Checking this would exclude this timesheet entry from Sale Order"
 msgstr ""
+"Bunu işaretlemek, bu zaman çizelgesi girişini Satış Emrinden hariç tutacaktır"
 
 #. module: sale_timesheet_line_exclude
 #: model:res.groups,name:sale_timesheet_line_exclude.group_exclude_from_sale_order
 msgid "Exclude timesheets from sale order"
-msgstr ""
+msgstr "Zaman çizelgelerini satış siparişinden hariç tut"
 
 #. module: sale_timesheet_line_exclude
 #: model_terms:ir.ui.view,arch_db:sale_timesheet_line_exclude.account_analytic_line_search
 msgid "Excluded From Sale Order"
-msgstr ""
+msgstr "Satış Siparişinden Hariç Tutulan"
 
 #. module: sale_timesheet_line_exclude
 #: model:res.groups,comment:sale_timesheet_line_exclude.group_exclude_from_sale_order
 msgid "Gives access to the Non-Billable field on timesheets."
-msgstr ""
+msgstr "Zaman çizelgelerindeki Faturalandırılamayan alana erişim sağlar."
 
 #. module: sale_timesheet_line_exclude
 #: model:ir.model.fields,field_description:sale_timesheet_line_exclude.field_account_analytic_line__exclude_from_sale_order
 msgid "Non-billable"
-msgstr ""
+msgstr "Faturalanamaz"
 
 #. module: sale_timesheet_line_exclude
 #. odoo-python
@@ -52,3 +55,5 @@ msgid ""
 "You can not modify timesheets in a way that would affect invoices since "
 "these timesheets were already invoiced."
 msgstr ""
+"Faturaları etkileyecek şekilde zaman çizelgelerini değiştiremezsiniz, çünkü "
+"bu zaman çizelgeleri zaten faturalandırılmıştır."
