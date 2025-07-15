@@ -2,22 +2,27 @@
 # Copyright 2024 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.tests import Form, common
+from odoo.tests import Form, TransactionCase
 
 
-class TestAccountAnalyticLine(common.SavepointCase):
+class TestAccountAnalyticLine(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestAccountAnalyticLine, cls).setUpClass()
         cls.AccountAnalyticAccount = cls.env["account.analytic.account"]
         cls.PredefinedDescription = cls.env["timesheet.predefined.description"]
         cls.AccountAnalyticLine = cls.env["account.analytic.line"]
+        cls.AnalyticPlan = cls.env["account.analytic.plan"]
+        cls.plan = cls.AnalyticPlan.create({"name": "Test Plan"})
         cls.description = "Test Predefined Description"
         cls.predefined_description = cls.PredefinedDescription.create(
             {"name": cls.description}
         )
         cls.analytic_account = cls.AccountAnalyticAccount.create(
-            {"name": "Test Account"}
+            {
+                "name": "Test Account",
+                "plan_id": cls.plan.id,
+            }
         )
         cls.analytic_line = cls.AccountAnalyticLine.create(
             {

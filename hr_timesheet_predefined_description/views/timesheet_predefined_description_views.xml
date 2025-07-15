@@ -3,7 +3,7 @@
         <field name="name">timesheet.predefined.description.tree</field>
         <field name="model">timesheet.predefined.description</field>
         <field name="arch" type="xml">
-            <tree string="Predefined Descriptions" editable="bottom">
+            <tree editable="bottom">
                 <field name="name" />
                 <field name="company_id" groups="base.group_multi_company" />
             </tree>

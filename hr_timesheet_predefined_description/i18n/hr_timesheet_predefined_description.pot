@@ -80,6 +80,5 @@ msgstr ""
 #. module: hr_timesheet_predefined_description
 #: model:ir.actions.act_window,name:hr_timesheet_predefined_description.action_timesheet_predefined_description
 #: model:ir.ui.menu,name:hr_timesheet_predefined_description.menu_timesheet_predefined_description
-#: model_terms:ir.ui.view,arch_db:hr_timesheet_predefined_description.view_timesheet_predefined_description_tree
 msgid "Predefined Descriptions"
 msgstr ""
