@@ -5,7 +5,7 @@
     "name": "Project Task Analytic Propagation",
     "summary": "Updates timesheet's analytic account"
     " when their task changes the analytic.",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "development_status": "Alpha",
     "category": "Timesheet",
     "website": "https://github.com/OCA/timesheet",
@@ -16,5 +16,8 @@
     "installable": True,
     "depends": [
         "sale_timesheet",
+    ],
+    "data": [
+        "views/project_task_views.xml",
     ],
 }
