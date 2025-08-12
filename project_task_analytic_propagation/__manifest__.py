@@ -10,7 +10,7 @@
     "category": "Timesheet",
     "website": "https://github.com/OCA/timesheet",
     "author": "Moduon, Odoo Community Association (OCA)",
-    "maintainers": ["edlopen", "rafaelbn"],
+    "maintainers": ["Andrii9090", "rafaelbn"],
     "license": "LGPL-3",
     "application": False,
     "installable": True,
