@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -39,19 +39,16 @@ msgid "Description"
 msgstr ""
 
 #. module: hr_timesheet_predefined_description
-#: model:ir.model.fields,field_description:hr_timesheet_predefined_description.field_account_analytic_line__display_name
 #: model:ir.model.fields,field_description:hr_timesheet_predefined_description.field_timesheet_predefined_description__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: hr_timesheet_predefined_description
-#: model:ir.model.fields,field_description:hr_timesheet_predefined_description.field_account_analytic_line__id
 #: model:ir.model.fields,field_description:hr_timesheet_predefined_description.field_timesheet_predefined_description__id
 msgid "ID"
 msgstr ""
 
 #. module: hr_timesheet_predefined_description
-#: model:ir.model.fields,field_description:hr_timesheet_predefined_description.field_account_analytic_line____last_update
 #: model:ir.model.fields,field_description:hr_timesheet_predefined_description.field_timesheet_predefined_description____last_update
 msgid "Last Modified on"
 msgstr ""
@@ -68,7 +65,6 @@ msgstr ""
 
 #. module: hr_timesheet_predefined_description
 #: model:ir.model.fields,field_description:hr_timesheet_predefined_description.field_account_analytic_line__predefined_description_id
-#: model:ir.model.fields,field_description:hr_timesheet_predefined_description.field_hr_timesheet_switch__predefined_description_id
 msgid "Predefined Description"
 msgstr ""
 
