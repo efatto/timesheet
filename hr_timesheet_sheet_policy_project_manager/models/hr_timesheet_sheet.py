@@ -1,7 +1,7 @@
 # Copyright 2019 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError, ValidationError
 
 
@@ -12,23 +12,13 @@ class HrTimesheetSheet(models.Model):
         string="Project",
         comodel_name="project.project",
         domain="[('company_id', '=', company_id)]",
-        readonly=True,
-        states={"new": [("readonly", False)]},
     )
-
-    @api.depends("project_id.user_id")
-    def _compute_project_manager_as_reviewer(self):
-        self._compute_possible_reviewer_ids()
-
-    @api.depends("project_id")
-    def _compute_complete_name_project_id(self):
-        self._compute_complete_name()
 
     def _get_complete_name_components(self):
         self.ensure_one()
         result = super()._get_complete_name_components()
         if self.review_policy == "project_manager" and self.project_id:
-            result += [self.project_id.name_get()[0][1]]
+            result += [self.project_id.display_name]
         return result
 
     def _get_overlapping_sheet_domain(self):
@@ -57,7 +47,7 @@ class HrTimesheetSheet(models.Model):
                 and rec.company_id != rec.project_id.company_id
             ):
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "The Company in the Timesheet Sheet and in the Project "
                         "must be the same."
                     )
@@ -89,7 +79,7 @@ class HrTimesheetSheet(models.Model):
             lambda sheet: not sheet.can_review
             and sheet.review_policy == "project_manager"
         ):
-            raise UserError(_("Only a Project Manager can review the sheet."))
+            raise UserError(self.env._("Only a Project Manager can review the sheet."))
         return res
 
     def reset_add_line(self):
@@ -102,5 +92,7 @@ class HrTimesheetSheet(models.Model):
         for rec in self:
             if rec.review_policy == "project_manager" and not rec.project_id:
                 raise UserError(
-                    _('Review policy "By Project Manager" requires Project to be set')
+                    self.env._(
+                        'Review policy "By Project Manager" requires Project to be set'
+                    )
                 )

@@ -74,12 +74,3 @@ msgstr "Prospetto foglio ore"
 #: model:ir.model.fields,field_description:hr_timesheet_sheet_policy_project_manager.field_res_company__timesheet_sheet_review_policy
 msgid "Timesheet Sheet Review Policy"
 msgstr "Politica revisione prospetto foglio ore"
-
-#~ msgid "Display Name"
-#~ msgstr "Nome visualizzato"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Ultima modifica il"

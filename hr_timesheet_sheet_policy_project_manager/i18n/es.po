@@ -74,12 +74,3 @@ msgstr "Parte de horas"
 #: model:ir.model.fields,field_description:hr_timesheet_sheet_policy_project_manager.field_res_company__timesheet_sheet_review_policy
 msgid "Timesheet Sheet Review Policy"
 msgstr "Política de revisión de Parte de horas"
-
-#~ msgid "By Department Manager"
-#~ msgstr "Por el responsable del departamento"
-
-#~ msgid "By Direct Manager"
-#~ msgstr "Por responsable directo"
-
-#~ msgid "By HR Manager/Officer"
-#~ msgstr "Por Reponsable de RRHH"
