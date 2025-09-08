@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -36,7 +36,6 @@ msgstr ""
 #. module: hr_timesheet_sheet_policy_project_manager
 #. odoo-python
 #: code:addons/hr_timesheet_sheet_policy_project_manager/models/hr_timesheet_sheet.py:0
-#, python-format
 msgid "Only a Project Manager can review the sheet."
 msgstr ""
 
@@ -49,14 +48,12 @@ msgstr ""
 #. module: hr_timesheet_sheet_policy_project_manager
 #. odoo-python
 #: code:addons/hr_timesheet_sheet_policy_project_manager/models/hr_timesheet_sheet.py:0
-#, python-format
 msgid "Review policy \"By Project Manager\" requires Project to be set"
 msgstr ""
 
 #. module: hr_timesheet_sheet_policy_project_manager
 #. odoo-python
 #: code:addons/hr_timesheet_sheet_policy_project_manager/models/hr_timesheet_sheet.py:0
-#, python-format
 msgid ""
 "The Company in the Timesheet Sheet and in the Project must be the same."
 msgstr ""
