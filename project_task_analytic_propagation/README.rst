@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =================================
 Project Task Analytic Propagation
 =================================
@@ -17,7 +13,7 @@ Project Task Analytic Propagation
 .. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
     :target: https://odoo-community.org/page/development-status
     :alt: Alpha
-.. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Ftimesheet-lightgray.png?logo=github
@@ -32,9 +28,16 @@ Project Task Analytic Propagation
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows you to change the analytical account of the unbilled
-timesheet when your related task changes the account as it does with the
-sales order item.
+This module allows you to change the analytic accounts in the timesheet,
+regardless of whether it has already been validated or is pending, when
+the linked task changes accounts (as happens with an item in a sales
+order).
+
+In addition, when you change the analytic account for a project, it is
+also automatically updated in all its tasks.
+
+When you change the task's project, this project will be propagate to
+all task's timesheets.
 
 .. IMPORTANT::
    This is an alpha version, the data model and design can change at any time without warning.
@@ -63,20 +66,15 @@ Usage
 
 To use this module, you need to:
 
-1. Go to Sales > Order and select an order with a project related to it
-   but not invoiced yet.
-2. Click on task's smart button and select a task with 'Sales Order
-   Item' set (or create a new task in other case).
-3. Select any analytic account in 'Extra Info'.
+1. Go to Sales > Order and select an order with a project related.
+2. Click on task's smart button and select or create a task.
+3. Select any analytic account for any analytic plan in 'Extra Info'.
 4. Record some time on timesheets page.
-5. Go back to your order and create an invoice.
-6. Go to the previous task and record some time. Then change the
-   analytic account.
-7. In timesheet's page only not invoiced timesheets changed the analytic
-   account.
-8. To check this go to Timesheets > All Timesheets.
-9. Change to list view and group by Project > Task and add custom group
-   Project.
+5. On the *Extra Info* tab change the analytic account in any analytic
+   plan.
+6. To check this go to Timesheets > All Timesheets.
+7. Change to list view and group by Project > Task and add custom group
+   based on your analytic plans.
 
 Bug Tracker
 ===========
@@ -101,6 +99,8 @@ Contributors
 
 - Eduardo López (`Moduon <https://www.moduon.team/>`__)
 - Rafael Blasco (`Moduon <https://www.moduon.team/>`__)
+- Sabrina Rodirguez (`Moduon <https://www.moduon.team/>`__)
+- Andrii Kompaniiets (`Moduon <https://www.moduon.team/>`__)
 
 Maintainers
 -----------
@@ -121,10 +121,13 @@ promote its widespread use.
 .. |maintainer-rafaelbn| image:: https://github.com/rafaelbn.png?size=40px
     :target: https://github.com/rafaelbn
     :alt: rafaelbn
+.. |maintainer-sabrinaRMartin| image:: https://github.com/sabrinaRMartin.png?size=40px
+    :target: https://github.com/sabrinaRMartin
+    :alt: sabrinaRMartin
 
 Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-Andrii9090| |maintainer-rafaelbn| 
+|maintainer-Andrii9090| |maintainer-rafaelbn| |maintainer-sabrinaRMartin| 
 
 This module is part of the `OCA/timesheet <https://github.com/OCA/timesheet/tree/18.0/project_task_analytic_propagation>`_ project on GitHub.
 
