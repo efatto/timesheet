@@ -19,5 +19,4 @@
                 action = records.action_timesheet_report_wizard()
         </field>
     </record>
-
 </odoo>

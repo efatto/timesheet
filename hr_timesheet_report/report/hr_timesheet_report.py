@@ -6,10 +6,9 @@ from functools import reduce
 
 from xlsxwriter.utility import xl_rowcol_to_cell
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 from odoo.osv.expression import TRUE_DOMAIN
-from odoo.tools import ustr
 from odoo.tools.safe_eval import safe_eval
 
 
@@ -142,7 +141,7 @@ class HrTimesheetReport(models.TransientModel):
                         {
                             "sequence": len(group_ids),
                             "name": None,
-                            "scope": ustr(report._get_domain()),
+                            "scope": str(report._get_domain()),
                         },
                     )
                 )
@@ -155,14 +154,23 @@ class HrTimesheetReport(models.TransientModel):
         for field in self.groupby_field_ids:
             name_part = grouped_lines.get(field.field_name, None)
             if not name_part:
-                name_part = _("%s not set") % (field.field_title)
+                name_part = self.env._(
+                    "%(field_title)s not set", field_title=field.field_title
+                )
             else:
                 name_part = name_part[1]
             name_parts.append(name_part)
 
         return {
-            "name": reduce(lambda l, r: _("{l} » {r}").format(l=l, r=r), name_parts),
-            "scope": ustr(grouped_lines["__domain"]),
+            "name": reduce(
+                lambda left, right: self.env._(
+                    "%(left)s » %(right)s",
+                    left=left,
+                    right=right,
+                ),
+                name_parts,
+            ),
+            "scope": str(grouped_lines["__domain"]),
         }
 
     @api.depends("group_ids.total_unit_amount")
@@ -198,7 +206,12 @@ class HrTimesheetReport(models.TransientModel):
         self.ensure_one()
 
         if report_type not in self._supported_report_types():
-            raise UserError(_('"%s" report type is not supported' % (report_type)))
+            raise UserError(
+                self.env._(
+                    '"%(report_type)s" report type is not supported',
+                    report_type=report_type,
+                )
+            )
 
         report_name = "hr_timesheet_report.report"
 
@@ -212,9 +225,10 @@ class HrTimesheetReport(models.TransientModel):
         )
         if not action:
             raise UserError(
-                _(
-                    '"%(report_name)s" report with "%(report_type)s" type not found'
-                    % ({"report_name": report_name, "report_type": report_type})
+                self.env._(
+                    '"%(report_name)s" report with "%(report_type)s" type not found',
+                    report_name=report_name,
+                    report_type=report_type,
                 )
             )
 
@@ -266,7 +280,7 @@ class HrTimesheetReportAbstractField(models.AbstractModel):
     def _compute_groupby(self):
         for field in self:
             if field.aggregation:
-                field.groupby = "%s:%s" % (field.field_name, field.aggregation)
+                field.groupby = f"{field.field_name}:{field.aggregation}"
             else:
                 field.groupby = field.field_name
 
@@ -372,7 +386,7 @@ class HrTimesheetReportGroup(models.TransientModel):
         self.ensure_one()
         return {
             "scope": (
-                ustr(grouped_lines["__domain"])
+                str(grouped_lines["__domain"])
                 if "__domain" in grouped_lines
                 else [("id", "=", grouped_lines["id"])]
             )
@@ -463,7 +477,9 @@ class Report(models.AbstractModel):
         uom_hour = self.env.ref("uom.product_uom_hour")
 
         for report_index, report in enumerate(docs):
-            sheet = workbook.add_worksheet(_("Report %s") % (report_index + 1))
+            sheet = workbook.add_worksheet(
+                self.env._("Report %(num)s", num=report_index + 1)
+            )
 
             formats = self._create_workbook_formats(report, workbook)
 
@@ -495,16 +511,14 @@ class Report(models.AbstractModel):
                         sheet.write(
                             rows_emitted, 0, group.name, formats["section_title"]
                         )
+                    # ruff: noqa: E501
                     sheet.write_formula(
                         rows_emitted,
                         amount_column_index,
-                        "=SUM(%s:%s)"
-                        % (
-                            xl_rowcol_to_cell(rows_emitted + 1, amount_column_index),
-                            xl_rowcol_to_cell(
-                                rows_emitted + len(group.entry_ids), amount_column_index
-                            ),
-                        ),
+                        f"=SUM("
+                        f"{xl_rowcol_to_cell(rows_emitted + 1, amount_column_index)}:"
+                        f"{xl_rowcol_to_cell(rows_emitted + len(group.entry_ids), amount_column_index)}"
+                        f")",
                         formats["section_total"],
                         self._convert_amount_num_format(
                             report, group.total_unit_amount
@@ -541,26 +555,22 @@ class Report(models.AbstractModel):
                     0,
                     rows_emitted,
                     amount_column_index - 1,
-                    _("Total"),
+                    self.env._("Total"),
                     formats["report_total_caption"],
                 )
             else:
                 sheet.write(
-                    rows_emitted, 0, _("Total"), formats["report_total_caption"]
+                    rows_emitted,
+                    0,
+                    self.env._("Total"),
+                    formats["report_total_caption"],
                 )
             if section_row_indices:
+                # ruff: noqa: E501
                 sheet.write_formula(
                     rows_emitted,
                     amount_column_index,
-                    "=SUM(%s)"
-                    % (
-                        "+".join(
-                            map(
-                                lambda x: xl_rowcol_to_cell(x, amount_column_index),
-                                section_row_indices,
-                            )
-                        )
-                    ),
+                    f"=SUM({'+'.join(map(lambda x: xl_rowcol_to_cell(x, amount_column_index), section_row_indices))})",
                     formats["report_total_amount"],
                     self._convert_amount_num_format(report, report.total_unit_amount),
                 )
@@ -568,11 +578,8 @@ class Report(models.AbstractModel):
                 sheet.write_formula(
                     rows_emitted,
                     amount_column_index,
-                    "=SUM(%s:%s)"
-                    % (
-                        xl_rowcol_to_cell(1, amount_column_index),
-                        xl_rowcol_to_cell(rows_emitted - 2, amount_column_index),
-                    ),
+                    f"=SUM({xl_rowcol_to_cell(1, amount_column_index)}:"
+                    f"{xl_rowcol_to_cell(rows_emitted - 2, amount_column_index)})",
                     formats["report_total_amount"],
                     self._convert_amount_num_format(report, report.total_unit_amount),
                 )

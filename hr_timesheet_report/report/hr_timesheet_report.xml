@@ -11,7 +11,10 @@
                 <t t-call="web.external_layout">
                     <t t-set="uom_hour" t-value="env.ref('uom.product_uom_hour')" />
                     <div class="page">
-                        <div class="oe_structure" />
+                        <div
+                            id="oe_structure_timesheet_report_header"
+                            class="oe_structure"
+                        />
                         <div class="row">
                             <div class="col-lg-12">
                                 <h2>
@@ -41,8 +44,8 @@
                             <div t-if="report.line_ids" class="col">
                                 <h5>
                                     <span>on <span
-                                            t-out="len(report.line_ids)"
-                                        /> selected entries</span>
+                                        t-out="len(report.line_ids)"
+                                    /> selected entries</span>
                                 </h5>
                             </div>
                         </div>
@@ -62,8 +65,8 @@
                                     </span>
                                     <t t-else="">
                                         <span t-field="report.date_from" /> - <span
-                                            t-field="report.date_to"
-                                        />
+                                        t-field="report.date_to"
+                                    />
                                     </t>
                                 </h5>
                             </div>
@@ -192,8 +195,9 @@
                                         >
                                             <td />
                                         </t>
-                                        <td class="text-right"><strong
-                                            >Subtotal</strong></td>
+                                        <td class="text-right">
+                                            <strong>Subtotal</strong>
+                                        </td>
                                         <td class="text-right">
                                             <strong
                                                 t-if="report.time_format == 'hh_mm'"
@@ -215,7 +219,10 @@
                                 </t>
                             </tbody>
                         </table>
-                        <div class="oe_structure" />
+                        <div
+                            id="oe_structure_timesheet_report_footer"
+                            class="oe_structure"
+                        />
                     </div>
                 </t>
             </t>
@@ -245,5 +252,4 @@
         <field name="report_name">hr_timesheet_report.report</field>
         <field name="report_file">Timesheet Report</field>
     </record>
-
 </odoo>

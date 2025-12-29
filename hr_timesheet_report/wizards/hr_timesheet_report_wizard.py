@@ -1,7 +1,7 @@
 # Copyright 2018-2020 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError, ValidationError
 
 
@@ -73,7 +73,9 @@ class HrTimesheetReportWizard(models.TransientModel):
                     }
                 )
             if "entry_field_ids" not in vals:
-                raise UserError(_("At least one Details field must be specified!"))
+                raise UserError(
+                    self.env._("At least one Details field must be specified!")
+                )
         return super().create(vals_list)
 
     @api.model
@@ -128,7 +130,7 @@ class HrTimesheetReportWizard(models.TransientModel):
         for wizard in self:
             if len(wizard.entry_field_ids) < 1:
                 raise ValidationError(
-                    _("At least one field must be listed in Details Fields")
+                    self.env._("At least one field must be listed in Details Fields")
                 )
 
     @api.depends("line_ids")
