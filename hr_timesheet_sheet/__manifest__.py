@@ -26,4 +26,9 @@
         "views/account_analytic_line_views.xml",
         "views/res_config_settings_views.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "hr_timesheet_sheet/static/src/components/**/*",
+        ],
+    },
 }
