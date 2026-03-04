@@ -7,7 +7,7 @@
             ref="hr_timesheet_time_type.view_project_time_type_tree"
         />
         <field name="arch" type="xml">
-            <xpath expr="//tree/field[@name='code']" position="after">
+            <xpath expr="//list/field[@name='code']" position="after">
                 <field name="non_billable" />
             </xpath>
         </field>
