@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-07 08:56+0000\n"
-"PO-Revision-Date: 2026-06-08 05:58+0000\n"
+"PO-Revision-Date: 2026-06-08 06:05+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/odoo/teams/41243/sl/)\n"
 "Language: sl\n"
@@ -29,6 +29,9 @@ msgid ""
 "specific.\" aria-label=\"Values set here are company-specific.\" groups="
 "\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
+"<span class=\"fa fa-lg fa-building\" title=\"Vrednosti, nastavljene tukaj, "
+"so specifične za družbo.\" aria-label=\"Vrednosti, nastavljene tukaj, so "
+"specifične za družbo.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 
 #. module: hr_timesheet_sheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_sheet.view_hr_timesheet_sheet_kanban
@@ -122,22 +125,22 @@ msgstr "Opravila na voljo"
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields.selection,name:hr_timesheet_sheet.selection__res_company__timesheet_sheet_review_policy__hr_manager
 msgid "By HR Managers"
-msgstr ""
+msgstr "Kadrovski vodje"
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields.selection,name:hr_timesheet_sheet.selection__res_company__timesheet_sheet_review_policy__hr
 msgid "By HR Officers"
-msgstr ""
+msgstr "Kadrovski referenti"
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields.selection,name:hr_timesheet_sheet.selection__res_company__timesheet_sheet_review_policy__timesheet_manager
 msgid "By Timesheets Managers"
-msgstr ""
+msgstr "Vodje časovnic"
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_sheet__can_review
 msgid "Can Review"
-msgstr ""
+msgstr "Lahko revidira"
 
 #. module: hr_timesheet_sheet
 #. odoo-python
@@ -311,6 +314,10 @@ msgid ""
 "it should be\n"
 "            validated by a reviewer."
 msgstr ""
+"Zaposleni morajo vsak dan beležiti časovnice in jih ob koncu\n"
+"            poročevalnega obdobja potrditi. Ko je časovnica potrjena, jo "
+"mora\n"
+"            revizor overiti."
 
 #. module: hr_timesheet_sheet
 #: model_terms:ir.actions.act_window,help:hr_timesheet_sheet.act_hr_timesheet_sheet_all_timesheets
@@ -321,6 +328,11 @@ msgid ""
 "it should be\n"
 "             validated by a reviewer."
 msgstr ""
+"Zaposleni morajo v časovnici vsak dan beležiti časovne vnose in jih ob "
+"koncu\n"
+"             poročevalnega obdobja potrditi. Ko je časovnica potrjena, jo "
+"mora\n"
+"             revizor overiti."
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_sheet__message_follower_ids
@@ -398,14 +410,14 @@ msgstr ""
 msgid ""
 "If selected, the associated project is added to the timesheet sheet when "
 "clicked the button."
-msgstr ""
+msgstr "Če je izbrano, se ob kliku gumba povezan projekt doda v časovnico."
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields,help:hr_timesheet_sheet.field_hr_timesheet_sheet__add_line_task_id
 msgid ""
 "If selected, the associated task is added to the timesheet sheet when "
 "clicked the button."
-msgstr ""
+msgstr "Če je izbrano, se ob kliku gumba povezano opravilo doda v časovnico."
 
 #. module: hr_timesheet_sheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_sheet.view_hr_timesheet_sheet_filter
@@ -581,7 +593,7 @@ msgstr "Število sporočil, ki niso bila pravilno dostavljena"
 #: code:addons/hr_timesheet_sheet/models/hr_timesheet_sheet.py:0
 #, python-format
 msgid "Only a HR Officer or Manager can review the sheet."
-msgstr ""
+msgstr "Časovnico lahko revidira le kadrovski referent ali vodja."
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields.selection,name:hr_timesheet_sheet.selection__hr_timesheet_sheet__state__draft
@@ -767,7 +779,7 @@ msgstr "Začasne časovnice"
 #, python-format
 msgid ""
 "The Company in the Timesheet Sheet and in the Department must be the same."
-msgstr ""
+msgstr "Družba v časovnici in v oddelku mora biti enaka."
 
 #. module: hr_timesheet_sheet
 #. odoo-python
@@ -775,34 +787,34 @@ msgstr ""
 #, python-format
 msgid ""
 "The Company in the Timesheet Sheet and in the Employee must be the same."
-msgstr ""
+msgstr "Družba v časovnici in pri zaposlenem mora biti enaka."
 
 #. module: hr_timesheet_sheet
 #. odoo-python
 #: code:addons/hr_timesheet_sheet/models/hr_timesheet_sheet.py:0
 #, python-format
 msgid "The Company in the Timesheet Sheet and in the Project must be the same."
-msgstr ""
+msgstr "Družba v časovnici in pri projektu mora biti enaka."
 
 #. module: hr_timesheet_sheet
 #. odoo-python
 #: code:addons/hr_timesheet_sheet/models/hr_timesheet_sheet.py:0
 #, python-format
 msgid "The Company in the Timesheet Sheet and in the Task must be the same."
-msgstr ""
+msgstr "Družba v časovnici in pri opravilu mora biti enaka."
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields,help:hr_timesheet_sheet.field_res_company__sheet_range
 #: model:ir.model.fields,help:hr_timesheet_sheet.field_res_config_settings__sheet_range
 msgid "The range of your Timesheet Sheet."
-msgstr ""
+msgstr "Obseg vaše časovnice."
 
 #. module: hr_timesheet_sheet
 #. odoo-python
 #: code:addons/hr_timesheet_sheet/models/hr_timesheet_sheet.py:0
 #, python-format
 msgid "The start date cannot be later than the end date."
-msgstr ""
+msgstr "Začetni datum ne more biti poznejši od končnega datuma."
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields.selection,name:hr_timesheet_sheet.selection__res_company__timesheet_week_start__3
@@ -887,6 +899,8 @@ msgid ""
 "Timesheet sheets can also be invoiced to customers, depending on\n"
 "             the configuration of each project's related contract."
 msgstr ""
+"Časovnice se lahko tudi zaračunajo strankam, odvisno od nastavitev\n"
+"             povezane pogodbe posameznega projekta."
 
 #. module: hr_timesheet_sheet
 #: model_terms:ir.actions.act_window,help:hr_timesheet_sheet.act_hr_timesheet_sheet_all_timesheets
@@ -907,6 +921,8 @@ msgid ""
 "Timesheets can also be invoiced to customers, depending on the\n"
 "            configuration of each project's related contract."
 msgstr ""
+"Časovnice se lahko tudi zaračunajo strankam, odvisno od nastavitev\n"
+"            povezane pogodbe posameznega projekta."
 
 #. module: hr_timesheet_sheet
 #: model:ir.actions.act_window,name:hr_timesheet_sheet.hr_timesheet_action_from_department
@@ -1003,7 +1019,7 @@ msgstr "Teden"
 #: code:addons/hr_timesheet_sheet/models/hr_timesheet_sheet.py:0
 #, python-format
 msgid "Week %(end)s"
-msgstr ""
+msgstr "Teden %(end)s"
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_res_config_settings__timesheet_week_start
@@ -1020,7 +1036,7 @@ msgstr "Začetni dan v tednu"
 #: code:addons/hr_timesheet_sheet/models/hr_timesheet_sheet.py:0
 #, python-format
 msgid "Weeks %(start)s - %(end)s"
-msgstr ""
+msgstr "Tedni %(start)s - %(end)s"
 
 #. module: hr_timesheet_sheet
 #. odoo-python
@@ -1032,6 +1048,8 @@ msgid ""
 "You cannot change the company, as this %(rec_name)s (%(rec_display_name)s) "
 "is assigned to %(current_name)s (%(current_display_name)s)."
 msgstr ""
+"Družbe ne morete spremeniti, ker je ta %(rec_name)s (%(rec_display_name)s) "
+"dodeljen %(current_name)s (%(current_display_name)s)."
 
 #. module: hr_timesheet_sheet
 #. odoo-python
@@ -1043,6 +1061,9 @@ msgid ""
 " - %(sheet_name)s of %(sheet_company)s\n"
 " - %(name)s of %(company)s"
 msgstr ""
+"Časovnice ne morete ustvariti za drugo družbo kot je družba časovnice:\n"
+" - %(sheet_name)s družbe %(sheet_company)s\n"
+" - %(name)s družbe %(company)s"
 
 #. module: hr_timesheet_sheet
 #. odoo-python
@@ -1058,7 +1079,7 @@ msgstr "Potrjene ali vložene časovnice ne morete brisati: %s"
 #: code:addons/hr_timesheet_sheet/models/hr_timesheet_sheet.py:0
 #, python-format
 msgid "You cannot duplicate a sheet."
-msgstr ""
+msgstr "Ne morete podvajati časovnice."
 
 #. module: hr_timesheet_sheet
 #. odoo-python
@@ -1070,13 +1091,17 @@ msgid ""
 "Conflicting sheets:\n"
 " - %(names)s"
 msgstr ""
+"Ne morete imeti dveh ali več prekrivajočih se časovnic!\n"
+"Za izogib temu problemu uporabite meni »Časovnica«.\n"
+"Sporne časovnice:\n"
+" - %(names)s"
 
 #. module: hr_timesheet_sheet
 #. odoo-python
 #: code:addons/hr_timesheet_sheet/models/account_analytic_line.py:0
 #, python-format
 msgid "You cannot modify an entry in a confirmed timesheet sheet: %(names)s"
-msgstr ""
+msgstr "Vnosov v potrjeno časovnico ni mogoče spreminjati: %(names)s"
 
 #. module: hr_timesheet_sheet
 #: model_terms:ir.actions.act_window,help:hr_timesheet_sheet.act_hr_timesheet_line_to_submit_my
@@ -1086,6 +1111,10 @@ msgid ""
 "it should be\n"
 "            validated by a reviewer."
 msgstr ""
+"Časovnice morate beležiti vsak dan in jih ob koncu\n"
+"            poročevalnega obdobja potrditi. Ko je časovnica potrjena, jo "
+"mora\n"
+"            revizor overiti."
 
 #. module: hr_timesheet_sheet
 #: model_terms:ir.actions.act_window,help:hr_timesheet_sheet.act_hr_timesheet_sheet_my_timesheets
@@ -1095,6 +1124,10 @@ msgid ""
 "it should be\n"
 "             validated by a reviewer."
 msgstr ""
+"V časovnici morate vsak dan beležiti časovne vnose in jih ob koncu\n"
+"             poročevalnega obdobja potrditi. Ko je časovnica potrjena, jo "
+"mora\n"
+"             revizor overiti."
 
 #. module: hr_timesheet_sheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_sheet.hr_timesheet_sheet_form
